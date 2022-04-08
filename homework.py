@@ -62,8 +62,8 @@ class Training:
 
 class Running(Training):
     """Тренировка: бег."""
-    CALORIES_SPEED_MULTIPLIER: int = 18
-    CALORIES_SPEED_SUBTRACTOR: int = 20
+    CALORIES_SPEED_MULTIPLIER: float = 18
+    CALORIES_SPEED_SUBTRACTOR: float = 20
 
     def get_spent_calories(self) -> float:
         spent_calories: float = ((self.CALORIES_SPEED_MULTIPLIER
@@ -164,5 +164,5 @@ if __name__ == '__main__':
     ]
 
     for workout_type, data in packages:
-        training: Training = read_package(workout_type, data)
+        training: Optional[Training] = read_package(workout_type, data)
         main(training)
